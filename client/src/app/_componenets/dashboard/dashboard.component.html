@@ -1,0 +1,23 @@
+<mat-grid-list cols="3" rowHeight="40vh">
+    <mat-grid-tile colspan="1" rowspan="2">
+        <mat-calendar (selectedChange)="selectedChange($event)"></mat-calendar>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="2">
+        <div class="container">
+            <div *ngIf="isLoading">Loading....</div>
+            <ng-container *ngIf="mSlotData.length && !isLoading">
+                <p class="slot-text mt-3">Selected slot: <b>{{
+                        selectedGroup.value }}</b></p>
+                <h5 class="slot-title">Morning Slot</h5>
+                <mat-button-toggle-group #selectedGroup="matButtonToggleGroup" class="row m-3">
+                    <mat-button-toggle [value]="mSlot" *ngFor="let mSlot of mSlotData" class="col-md-3">
+                        {{ mSlot }}
+                    </mat-button-toggle>
+                    <mat-button-toggle [value]="eSlot" *ngFor="let eSlot of eSlotData" class="col-md-3">
+                        {{ eSlot }}
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </ng-container>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

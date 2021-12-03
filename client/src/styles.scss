@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/bootstrap-reboot"; // Import Roboot
+@import "~bootstrap/scss/bootstrap-grid"; // add the grid
+@import "~bootstrap/scss/bootstrap-utilities"; // add the utilities
+
+html,
+body {
+    height: 100%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.invalid-feedback {
+    position: relative;
+    bottom: 10px;
+    color: #fb0202;
+    font-weight: 200;
+}
+
+.title-text {
+    font-weight: 200;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.title-text a {
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.container {
+    padding: 15px;
+}

@@ -1,0 +1,25 @@
+<div class="logo">Doctor App</div>
+<mat-card class="login-box">
+    <div class="login-title">Sign In</div>
+
+    <form autocomplete="off" novalidate [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" placeholder="Email" autocomplete="off" />
+        </mat-form-field>
+        <span *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            Email is required in the correct format.
+        </span>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="password" placeholder="Password" autocomplete="off" />
+        </mat-form-field>
+        <span *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            Password is required.
+        </span>
+        <button mat-raised-button class="submit-btn" [disabled]="loader">{{ loader ? 'Loading...Please wait!' : 'Login'
+            }}</button>
+
+        <span class="title-text">If you have not an account? <a routerLink="/register"> Sign up </a></span>
+    </form>
+</mat-card>

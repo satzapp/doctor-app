@@ -1,0 +1,58 @@
+<div class="logo">Doctor App</div>
+<mat-card class="login-box">
+    <div class="login-title">Sign Up</div>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" type="name" placeholder="Name" autocomplete="off" />
+        </mat-form-field>
+        <span *ngIf="(f.name.errors?.required || f.name.errors?.minlength) && submitted" class="invalid-feedback">Please
+            enter the valid name.</span>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" placeholder="Email" autocomplete="off" />
+        </mat-form-field>
+        <span *ngIf="(f.email.errors?.required || f.email.errors?.email) && submitted" class="invalid-feedback">Email
+            enter the valid email.</span>
+        <span *ngIf="(!f.email.errors && submitted && errors.hasOwnProperty('email'))" class="invalid-feedback">Email
+            already registred.</span>
+
+        <mat-form-field>
+            <mat-label>Mobile</mat-label>
+            <input matInput formControlName="mobile" type="mobile" placeholder="Ex: 9134567890" autocomplete="off" />
+        </mat-form-field>
+        <span *ngIf="(f.mobile.errors?.required || f.mobile.errors?.pattern)  && submitted"
+            class="invalid-feedback">Please enter the valid mobile number.</span>
+        <span *ngIf="(!f.mobile.errors && submitted && errors.hasOwnProperty('mobile'))" class="invalid-feedback">Mobile
+            already registred.</span>
+
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="password" placeholder="Password" autocomplete="off" />
+        </mat-form-field>
+        <div *ngIf="f.password.errors && submitted">
+            <span *ngIf="f.password.errors.required" class="invalid-feedback">Password is required.</span>
+            <span *ngIf="f.password.errors.minlength && !f.password.errors.required" class="invalid-feedback">Password
+                must be 8 characters.</span>
+        </div>
+        <mat-form-field>
+            <mat-label>Confirm Password</mat-label>
+            <input matInput formControlName="confirmPassword" type="password" placeholder="Confirm Password"
+                autocomplete="off" />
+        </mat-form-field>
+        <div *ngIf="f.confirmPassword.errors && submitted">
+            <span *ngIf="f.confirmPassword.errors?.required" class="invalid-feedback">Confirm Password is
+                required.</span>
+            <span *ngIf="f.confirmPassword.errors.matching && !f.confirmPassword.errors?.required"
+                class="invalid-feedback">Password and
+                Confirm Password must be
+                match.
+            </span>
+        </div>
+        <button mat-raised-button class="submit-btn" [disabled]="loader">{{ loader ? 'Loading...Please wait!' :
+            'Register'
+            }}</button>
+
+        <span class="title-text">If you have already have an account? <a routerLink="/login"> Sign In </a></span>
+    </form>
+</mat-card>

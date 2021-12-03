@@ -1,0 +1,26 @@
+mat-grid-tile {
+  border: 1px solid #000;
+}
+
+.calendar-section {
+  width: 500px;
+}
+
+.matButtonToggle {
+   border: 2px solid #5b439b;
+    border-radius: 4px;
+    margin: 15px;
+    width: 150px;
+    height: 45px;
+    font-family: 'Nunito Semibold', sans-serif;
+    font-size: 14px;
+    line-height: normal;
+}
+
+.slot-text {
+    position: absolute;
+    top: 7%;
+    justify-content: center;
+    align-items: center;
+    left: 15px;
+}
